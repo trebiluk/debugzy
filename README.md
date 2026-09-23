@@ -3,24 +3,30 @@
 Chromebook mid/low debugging lab for Solvay Tech 6–8 · Tech Room door.
 
 **Live (school):** https://apps.kulibert.net/debugzy/  
-**Chip:** v0.1.0 · **Mode:** thin shell (Curriculum puzzle lock pending)
+**Chip:** v0.1.0 · **Mode:** playable lab (curriculum lock)
 
-## Loop (product)
+**Kid line:** Find the bad step. Change one thing. Try again.
 
-See a broken sequence → find the bad step → change one thing → Run → pass → Next.
+## Loop
 
-Puzzle **copy is owned by Curriculum**. Do not invent classroom puzzles in this repo until `shared/*/CURRICULUM-DEBUGZY*.md` lands.
+See a broken sequence → pick the bad step → pick **one** change → **Try again** → Pass → Next.
 
-## v0.1.0 shell
+Prove (oral / point / demo): bad step · one change · pass run.
 
-Title · **v0.1.0** chip · Help placeholder · Tech Room back link · Tech Room dark blue/cyan. No playable puzzles yet.
+No score chase · no XP grade · no shame · no leaderboard · alias optional (local only).
+
+## v0.1.0 playable
+
+5 tech-ed puzzles: fold/save order · wrong unit · cable/power · one wrong code line · export path.
+
+Help = Curriculum §3 Easy steps (stable numbers) + stuck table.
 
 ## Files
 
 | File | Role |
 | --- | --- |
-| `index.html` | Shell |
-| `app.js` | Help toggle + version chip |
+| `index.html` | Lab UI |
+| `app.js` | Puzzles + find → change one → try again |
 | `styles.css` | Tech Room tokens · hits ≥44px |
 | `mark.svg` | App mark |
 | `CHANGELOG.md` | Version history |
@@ -28,3 +34,7 @@ Title · **v0.1.0** chip · Help placeholder · Tech Room back link · Tech Room
 ## Hub copy
 
 School door: `trebiluk/apps-kulibert` → `/debugzy/`. Publish with `./scripts/hub-publish.sh`.
+
+## Curriculum lock
+
+`shared/debugzy/crew-reports/CURRICULUM-DEBUGZY-GAME.md`
