@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
   <meta name="theme-color" content="#050814"/>
-  <meta name="description" content="Debugzy — Chromebook debugging lab for Solvay Tech Ed. Curriculum puzzle lock pending."/>
+  <meta name="description" content="Debugzy — Chromebook debugging lab for Solvay Tech Ed. Find the bad step. Change one thing. Try again."/>
   <title>Debugzy · The Tech Room</title>
   <link rel="icon" type="image/svg+xml" href="./mark.svg"/>
   <link rel="stylesheet" href="/fonts/room.css"/>
@@ -34,30 +34,84 @@
   </header>
 
   <section id="help" class="help" hidden>
-    <h2>Help</h2>
-    <p>Placeholder until Curriculum locks the classroom puzzles.</p>
-    <p class="whats-new"><strong>What’s new</strong> · v0.1.0 thin shell only — no student puzzles yet.</p>
+    <h2>Help · Easy steps</h2>
+    <ol class="help-loop">
+      <li>Read the whole sequence once.</li>
+      <li>Point to the step you think is <strong>wrong</strong>.</li>
+      <li>Say why in one short sentence.</li>
+      <li>Change <strong>one</strong> thing only.</li>
+      <li>Press <strong>Try again</strong> (or Run).</li>
+      <li>Watch the result.</li>
+      <li>Pass = it works. Fail = name why · go back to step 2.</li>
+      <li>Write your <strong>alias</strong> on the ticket if you keep paper proof.</li>
+    </ol>
+    <h3 class="help-sub">Stuck (calm)</h3>
+    <table class="stuck">
+      <thead><tr><th>Problem</th><th>One change</th></tr></thead>
+      <tbody>
+        <tr><td>Changed three things</td><td>Undo · change only one · try again</td></tr>
+        <tr><td>Guessing fast</td><td>Read every step out loud · then point</td></tr>
+        <tr><td>Still fails</td><td>Keep the same bad-step guess · try a different one change</td></tr>
+        <tr><td>Frustrated</td><td>Pause · breathe · same puzzle · ask a peer to point first</td></tr>
+      </tbody>
+    </table>
+    <p class="quiet alias-note">Alias is optional and stays on this Chromebook only · no legal names.</p>
+    <p class="whats-new"><strong>What’s new</strong> · v0.1.0 playable lab · curriculum lock · find → change one → try again.</p>
   </section>
 
   <main id="main" class="stage">
-    <p class="progress">Shell · curriculum hold</p>
-    <h1 class="title">Debugzy</h1>
-    <p class="lede">Find the bad step. Change one thing. Try again. Playable puzzles wait on Curriculum lock (<code>CURRICULUM-DEBUGZY*</code>).</p>
-    <div class="panel">
-      <h2 class="panel-label">Status</h2>
-      <p class="hint" style="margin:0">Thin door shell is up. Puzzle copy is not invented here. When Curriculum lands the lock file, Build wires 3–5 puzzles into this loop.</p>
+    <p class="progress" id="progress">Puzzle 1 of 5</p>
+    <h1 class="title" id="puzzle-title">Debugzy</h1>
+    <p class="lede" id="puzzle-lede">Find the bad step. Change one thing. Try again.</p>
+
+    <div class="panel" id="alias-panel">
+      <label class="panel-label" for="alias-input">Alias (optional · this Chromebook)</label>
+      <div class="alias-row">
+        <input id="alias-input" class="alias-input" type="text" maxlength="24" autocomplete="off" spellcheck="false" placeholder="Classroom nickname"/>
+        <button type="button" id="alias-save" class="btn ghost">
+          <span class="ico" aria-hidden="true">✓</span>
+          <span>Save</span>
+        </button>
+      </div>
     </div>
-    <nav class="actions" aria-label="Room">
-      <a class="btn primary xl" href="/">
-        <span class="ico" aria-hidden="true">←</span>
-        <span>Back to Tech Room</span>
-      </a>
+
+    <div class="panel" id="steps-panel">
+      <h2 class="panel-label" id="steps-label">Sequence · pick the bad step</h2>
+      <div class="steps" id="steps" role="listbox" aria-labelledby="steps-label" aria-multiselectable="false"></div>
+      <p class="hint" id="step-hint">Tap the step that breaks the run.</p>
+    </div>
+
+    <div class="panel" id="change-panel" hidden>
+      <h2 class="panel-label" id="change-label">One change</h2>
+      <div class="choices" id="choices" role="listbox" aria-labelledby="change-label"></div>
+      <p class="hint" id="change-hint">Pick exactly one fix. Then press Try again.</p>
+    </div>
+
+    <div class="result" id="result" role="status" aria-live="polite" hidden></div>
+
+    <nav class="actions" aria-label="Puzzle actions">
+      <button type="button" id="try-btn" class="btn primary xl" disabled>
+        <span class="ico" aria-hidden="true">↻</span>
+        <span>Try again</span>
+      </button>
+      <button type="button" id="next-btn" class="btn primary xl" hidden>
+        <span class="ico" aria-hidden="true">→</span>
+        <span>Next</span>
+      </button>
+      <button type="button" id="skip-btn" class="btn ghost">
+        <span class="ico" aria-hidden="true">»</span>
+        <span>Skip this one</span>
+      </button>
     </nav>
+
+    <p class="done-banner" id="done-banner" hidden>
+      Lab complete. Point to a bad step · say your one change · show a pass run. Alias only on any paper ticket.
+    </p>
   </main>
 
   <footer class="foot">
     <span>Solvay Tech 6–8 · Chromebook lab</span>
-    <span class="quiet">No accounts · v0.1.0 shell</span>
+    <span class="quiet">No accounts · v0.1.0 playable</span>
   </footer>
 
   <script src="./app.js?v=0.1.0" defer></script>
