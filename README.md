@@ -3,7 +3,9 @@
 Chromebook mid/low debugging lab for Solvay Tech 6–8 · Tech Room door.
 
 **Live (school):** https://apps.kulibert.net/debugzy/  
-**Chip:** v0.1.0 · **Mode:** playable lab (curriculum lock)
+**Chip:** v0.1.3 · **Mode:** playable lab (curriculum lock)
+
+**Source of truth:** `trebiluk/apps-kulibert/debugzy/` (no build step). This repo mirrors it. It loads `/shared/kulibert-*.js`, `/fonts/` and `/icons/` from the Hub, so run it inside apps-kulibert.
 
 **Kid line:** Find the bad step. Change one thing. Try again.
 
